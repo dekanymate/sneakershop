@@ -23,7 +23,12 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $Snekaer = new Sneaker();
-        $Sneaker->id = $request->sneaker;
+        $Sneaker->name = $request->sneaker;
+        $Sneaker->price = $request->price;
+        $Sneaker->description = $request->description;
+        $Sneaker->article_number = $request->desctiption;
+        $Sneaker->image = $request->image;
+        $Sneaker->brand_id = $request->brand_id;
         $Sneaker->save();
     }
 

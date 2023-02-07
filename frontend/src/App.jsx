@@ -4,9 +4,11 @@ import Brands from './components/brands/Brands'
 import Admin from './components/admin/Admin';
 import Users from './components/Users/Users';
 import UsersModifier from './components/Users/UsersModifier';
+import NewSneaker from './components/sneakers/Sneakers';
 import Registration from './components/registration/Registration';
 import sneakerShopApi from './api/sneaker-shop-api';
 import React, { useState, useEffect } from "react";
+import SneakersAll from './components/sneakers/SneakerKi.jsx';
 
 
 
@@ -37,7 +39,10 @@ function App() {
           <Brands brands={brands} refresh={fetchData}></Brands>
           <hr />
           <Admin refresh={fetchData}></Admin>
+          <hr />
           <UsersModifier refresh={fetchData}></UsersModifier>
+          <hr />
+          <NewSneaker></NewSneaker>
           <hr />
         </>
       )}

@@ -16,7 +16,8 @@ class VerifyCsrfToken extends Middleware
         'delete-brand',
         'new-user',
         'update-user',
-        'delete-user'
+        'delete-user',
+        'new-sneaker'
     ];
     
 }

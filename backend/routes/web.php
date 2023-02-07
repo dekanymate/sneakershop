@@ -34,4 +34,5 @@ Route::post('/delete-user', [UserController::class, 'destroy']);
 
 // Sneaker
 
-Route::get('/sneakers', [SneakerController::class, 'index']);
+Route::post('/new-sneaker', [SneakerController::class, 'store']);
+Route::post('/sneakers', [SneakerController::class, 'index']);
