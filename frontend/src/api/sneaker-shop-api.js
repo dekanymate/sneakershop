@@ -22,7 +22,11 @@ export default {
         return httpClient.get('/users');
     },
 
-    updateUser() {
-        return httpClient.put('/users-update')
+    updateUser(id) {
+        return httpClient.put('/update-user', id)
+    },
+
+    deleteUser(id) {
+        return httpClient.post('/delete-user', id)
     }
 }

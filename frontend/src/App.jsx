@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <button onClick={() => setShowAdmin(!showAdmin)}>
-        Toggle Admin
+        Toggle View
       </button>
       <hr />
       {showAdmin && (

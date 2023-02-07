@@ -16,9 +16,9 @@ class UserController extends Controller
         $user = User::find($id);
         return $user;
     }
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        User::find($id)->delete();
+        User::find($request->id)->delete();
     }
     public function store(Request $request)
     {

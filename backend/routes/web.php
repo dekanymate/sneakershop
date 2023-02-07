@@ -29,7 +29,8 @@ Route::get('/api/brands/{id}', [BookController::class, 'show']);
 
 Route::post('/new-user', [UserController::class, 'store']);
 Route::get('/users',  [UserController::class, 'index']);
-Route::put('/users-update', [UserController::class, 'update']);
+Route::put('/update-user', [UserController::class, 'update']);
+Route::post('/delete-user', [UserController::class, 'destroy']);
 
 // Sneaker
 

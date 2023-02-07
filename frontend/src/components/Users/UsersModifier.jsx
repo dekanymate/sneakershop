@@ -27,6 +27,11 @@ const UsersModifier = () => {
         fetchData();
     };
 
+    const handleDelete = async (id) => {
+        await sneakerShopApi.deleteUser({ id: id });
+        fetchData();
+    }
+
     return (
         <div>
             {editing ? (
@@ -42,6 +47,7 @@ const UsersModifier = () => {
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>City</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -51,8 +57,10 @@ const UsersModifier = () => {
                                 <td>{user.id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
+                                <td>{user.city}</td>
                                 <td>
                                     <button onClick={() => handleEdit(user)}>Edit</button>
+                                    <button onClick={() => handleDelete(user.id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
@@ -88,6 +96,15 @@ const EditUserForm = ({ user, handleUpdate, setEditing }) => {
                 id="email"
                 name="email"
                 value={updatedUser.email}
+                onChange={handleInputChange}
+                className="edit-user-input"
+            />
+            <label htmlFor="city">City</label>
+            <input
+                type="text"
+                id="city"
+                name="city"
+                value={updatedUser.city}
                 onChange={handleInputChange}
                 className="edit-user-input"
             />
