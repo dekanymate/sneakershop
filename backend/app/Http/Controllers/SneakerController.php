@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Sneaker;
 use Illuminate\Http\Request;
 
-class BrandController extends Controller
+class SneakerController extends Controller
 {
     public function index(){
         $sneakers =  Sneaker::all();

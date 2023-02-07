@@ -8,7 +8,6 @@ import NewSneaker from './components/sneakers/Sneakers';
 import Registration from './components/registration/Registration';
 import sneakerShopApi from './api/sneaker-shop-api';
 import React, { useState, useEffect } from "react";
-import SneakersAll from './components/sneakers/SneakerKi.jsx';
 
 
 

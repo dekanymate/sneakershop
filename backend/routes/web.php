@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SneakerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,4 +36,4 @@ Route::post('/delete-user', [UserController::class, 'destroy']);
 // Sneaker
 
 Route::post('/new-sneaker', [SneakerController::class, 'store']);
-Route::post('/sneakers', [SneakerController::class, 'index']);
+Route::get('/sneakers', [SneakerController::class, 'index']);
