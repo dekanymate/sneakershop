@@ -32,10 +32,10 @@ class UserController extends Controller
         $User->save();
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        $User = User::find($id);
-        $User->user = $request->user;
+        $user->update($request->all());
+        return $user;
     }
 }
 

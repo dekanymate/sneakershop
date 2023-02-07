@@ -28,3 +28,9 @@ Route::get('/api/brands/{id}', [BookController::class, 'show']);
 // User
 
 Route::post('/new-user', [UserController::class, 'store']);
+Route::get('/users',  [UserController::class, 'index']);
+Route::put('/users-update', [UserController::class, 'update']);
+
+// Sneaker
+
+Route::get('/sneakers', [SneakerController::class, 'index']);

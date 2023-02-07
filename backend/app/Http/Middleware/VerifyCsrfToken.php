@@ -14,7 +14,8 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'new-brand',
         'delete-brand',
-        'new-user'
+        'new-user',
+        'users-update'
     ];
     
 }

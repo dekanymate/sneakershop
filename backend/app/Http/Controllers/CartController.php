@@ -23,7 +23,8 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $Cart = new Cart();
-        $Cart->cart = $request->cart;
+        $Cart->sneaker_id = $request->sneaker_id;
+        $Cart->user_id = $request->user_id;
         $Cart->save();
     }
 

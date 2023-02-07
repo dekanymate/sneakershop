@@ -17,4 +17,12 @@ export default {
     postUser(user) {
         return httpClient.post('/new-user', user);
     },
+
+    getUsers() {
+        return httpClient.get('/users');
+    },
+
+    updateUser() {
+        return httpClient.put('/users-update')
+    }
 }

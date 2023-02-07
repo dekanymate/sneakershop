@@ -7,10 +7,10 @@ import sneakerShopApi from "../../api/sneaker-shop-api";
 const Brands = ({ brands, refresh }) => {
 
   const handleDelete = async (id) => {
-    await sneakerShopApi.deleteBrand({id: id});
+    await sneakerShopApi.deleteBrand({ id: id });
     refresh();
   }
-  
+
   return (
     <table className="brand-table">
       <thead>
