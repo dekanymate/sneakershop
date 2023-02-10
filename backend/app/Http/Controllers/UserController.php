@@ -32,10 +32,15 @@ class UserController extends Controller
         $User->save();
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
-        $user->update($request->all());
-        return $user;
+        $User = User::find($request->id);
+        $User->name = $request->name;
+        $User->email = $request->email;
+        $User->city = $request->city;
+        $User->zipcode = $request->zipcode;
+        $User->address_details = $request->address_details;
+        $User->save();
     }
 }
 
