@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Sneakers.css'
 import sneakerShopApi from "../../api/sneaker-shop-api";
 
 const NewSneaker = () => {
@@ -19,6 +20,7 @@ const NewSneaker = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         await sneakerShopApi.postSneaker(sneaker);
+        alert('Sikeres felvétel')
     };
 
     return (
