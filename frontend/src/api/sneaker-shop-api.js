@@ -35,6 +35,17 @@ export default {
     },
 
     getSneakers() {
-        return httpClient.get('sneakers');
+        return httpClient.get('/sneakers');
+    },
+
+    updateSneaker(){
+        return httpClient.put('/update-sneaker', sneaker);
+    },
+    deleteSneaker(id){
+        return httpClient.delete('/delete-sneaker', id)
+    },
+    
+    login(){
+        return httpClient.post('/login');
     }
 }

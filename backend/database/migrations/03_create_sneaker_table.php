@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('sneakers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->integer('price');
             $table->string('description');
-            $table->binary('image');
+            $table->binary('image')->nullable();
+            $table->integer('article_number');
             $table->foreignId('brand_id')->references('id')->on('brands');
         });
     }

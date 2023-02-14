@@ -24,10 +24,16 @@ const Header = ({ onButtonClick }) => {
           Users
         </button>
         <button
-          style={selectedButton === 'ORDERS' ? styles.selectedButton : styles.button}
-          onClick={() => handleButtonClick('ORDERS')}
+          style={selectedButton === 'ADD_SNEAKER' ? styles.selectedButton : styles.button}
+          onClick={() => handleButtonClick('ADD_SNEAKER')}
         >
-          Orders
+          Add Sneaker
+        </button>
+        <button
+          style={selectedButton === 'SNEAKERS' ? styles.selectedButton : styles.button}
+          onClick={() => handleButtonClick('SNEAKERS')}
+        >
+          Sneakers
         </button>
       </nav>
     </header>

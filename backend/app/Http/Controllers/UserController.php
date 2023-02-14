@@ -25,7 +25,7 @@ class UserController extends Controller
         $User = new User();
         $User->name = $request->name;
         $User->email = $request->email;
-        $User->password = $request->password;
+        $user->password = Hash::make($request->password);
         $User->city = $request->city;
         $User->zipcode = $request->zipcode;
         $User->address_details = $request->addressDetails;
@@ -42,6 +42,27 @@ class UserController extends Controller
         $User->address_details = $request->address_details;
         $User->save();
     }
+
+    public function login(Request $request)
+{
+    $validatedData = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required'
+    ]);
+
+    $credentials = [
+        'email' => $validatedData['email'],
+        'password' => $validatedData['password'],
+    ];
+
+    if (Auth::attempt($credentials)) {
+        // Authentication passed...
+        return redirect('/brands');
+    }
+
+    return redirect()->back()->withInput()->with('error', 'Incorrect email or password');
+}
+
 }
 
 

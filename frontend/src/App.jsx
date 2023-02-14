@@ -9,11 +9,15 @@ import Registration from './components/registration/Registration';
 import Header from './components/header/Header';
 import sneakerShopApi from './api/sneaker-shop-api';
 import React, { useState, useEffect } from "react";
+import SneakerList from './components/sneakers/SneakerList';
+import SneakerModifier from './components/sneakers/SneakerModifier';
+
 
 const APP_STATES = {
   BRANDS: 'BRANDS',
   USERS: 'USERS',
-  ORDERS: 'ORDERS'
+  ADD_SNEAKER: 'ADD_SNEAKER',
+  SNEAKERS: 'SNEAKERS'
 }
 
 
@@ -45,6 +49,7 @@ function App() {
             <div className="row">
               <Brands brands={brands} refresh={fetchData}></Brands>
             </div>
+            <hr />
             <div className="row">
               <Admin refresh={fetchData}></Admin>
             </div>
@@ -53,8 +58,11 @@ function App() {
         {appState == APP_STATES.USERS && (
           <UsersModifier refresh={fetchData}></UsersModifier>
         )}
-        {appState == APP_STATES.ORDERS && (
-          <h2>Itt majd kiváló orderek lesznek egy szép napon</h2>
+        {appState == APP_STATES.ADD_SNEAKER && (
+          <NewSneaker/>
+        )}
+        {appState == APP_STATES.SNEAKERS && (
+          <SneakerList />
         )}
       </div>
     </div>
