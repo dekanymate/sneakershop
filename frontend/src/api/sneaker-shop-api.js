@@ -5,6 +5,8 @@ const httpClient = axios.create({
 })
 
 export default {
+
+    //BRAND
     getBrands() {
         return httpClient.get('/brands');
     },
@@ -14,8 +16,10 @@ export default {
     deleteBrand(id) {
         return httpClient.post('/delete-brand', id);
     },
+
+    //USER
     postUser(user) {
-        return httpClient.post('/new-user', user);
+        return httpClient.post('register', user);
     },
 
     getUsers() {
@@ -29,6 +33,8 @@ export default {
     deleteUser(id) {
         return httpClient.post('/delete-user', id);
     },
+
+    //SNEAKER
 
     postSneaker(sneaker) {
         return httpClient.post('/new-sneaker', sneaker);

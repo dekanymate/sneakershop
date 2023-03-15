@@ -12,6 +12,10 @@ const NewSneaker = () => {
         brand_id: ''
     });
 
+    const handleImageChange = (e) => {
+        setImage(e.target.files[0]);
+      };
+
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setSneaker({ ...sneaker, [name]: value });

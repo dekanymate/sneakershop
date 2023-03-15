@@ -1,0 +1,46 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+  }
+  
+  .sneaker {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .sneaker img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .sneaker .details {
+    padding: 1rem;
+  }
+  
+  .sneaker .name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .sneaker .description {
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .sneaker .price {
+    font-weight: bold;
+  }
+  
+  .sneaker .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  

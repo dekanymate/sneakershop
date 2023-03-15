@@ -35,6 +35,12 @@ const Header = ({ onButtonClick }) => {
         >
           Sneakers
         </button>
+        <button
+          style={selectedButton === 'REGISTER' ? styles.selectedButton : styles.button}
+          onClick={() => handleButtonClick('REGISTER')}
+        >
+          REGISTER
+        </button>
       </nav>
     </header>
   );

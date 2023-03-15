@@ -1,23 +1,20 @@
-import reactLogo from './assets/react.svg'
 import './App.css'
 import Brands from './components/brands/Brands'
 import Admin from './components/admin/Admin';
-import Users from './components/users/Users';
 import UsersModifier from './components/users/UsersModifier';
 import NewSneaker from './components/sneakers/Sneakers';
-import Registration from './components/registration/Registration';
 import Header from './components/header/Header';
 import sneakerShopApi from './api/sneaker-shop-api';
 import React, { useState, useEffect } from "react";
-import SneakerList from './components/sneakers/SneakerList';
-import SneakerModifier from './components/sneakers/SneakerModifier';
+import SneakerList from './components/sneaker-list/SneakerList';
 
 
 const APP_STATES = {
   BRANDS: 'BRANDS',
   USERS: 'USERS',
   ADD_SNEAKER: 'ADD_SNEAKER',
-  SNEAKERS: 'SNEAKERS'
+  SNEAKERS: 'SNEAKERS',
+  REGISTER: 'REGISTER'
 }
 
 
@@ -59,10 +56,10 @@ function App() {
           <UsersModifier refresh={fetchData}></UsersModifier>
         )}
         {appState == APP_STATES.ADD_SNEAKER && (
-          <NewSneaker/>
+          <NewSneaker />
         )}
         {appState == APP_STATES.SNEAKERS && (
-          <SneakerList />
+          <SneakerList brands={brands} />
         )}
       </div>
     </div>

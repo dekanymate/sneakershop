@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SneakerController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -50,10 +51,11 @@ Route::get('/api/brands/{id}', [BookController::class, 'show']);
 
 // User
 
-Route::post('/new-user', [UserController::class, 'store']);
+//Route::post('/new-user', [UserController::class, 'store']);
 Route::get('/users',  [UserController::class, 'index']);
 Route::put('/update-user', [UserController::class, 'update']);
 Route::post('/delete-user', [UserController::class, 'destroy']);
+Route::post('/new-user', [RegisteredUserController::class, 'store']);
 
 // Sneaker
 
