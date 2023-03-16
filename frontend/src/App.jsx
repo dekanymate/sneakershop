@@ -2,7 +2,7 @@ import './App.css'
 import Brands from './components/brands/Brands'
 import Admin from './components/admin/Admin';
 import UsersModifier from './components/users/UsersModifier';
-import NewSneaker from './components/sneakers/Sneakers';
+import NewSneaker from './components/sneakers/NewSneaker';
 import Header from './components/header/Header';
 import sneakerShopApi from './api/sneaker-shop-api';
 import React, { useState, useEffect } from "react";

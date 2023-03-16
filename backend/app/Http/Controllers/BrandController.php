@@ -14,7 +14,7 @@ class BrandController extends Controller
     public function show($id)
     {
         $book = Brand::find($id);
-        return $book;
+        return $brand;
     }
     public function destroy(Request $request)
     {
@@ -23,14 +23,14 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $Brand = new Brand();
-        $Brand->brand = $request->brand;
+        $Brand->name = $request->name;
         $Brand->save();
     }
 
     public function update(Request $request, $id)
     {
         $Brand = Brand::find($id);
-        $Brand->brand = $request->brand;
+        $Brand->name = $request->name;
     }
 }
 

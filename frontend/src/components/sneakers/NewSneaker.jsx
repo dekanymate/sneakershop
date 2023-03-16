@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Sneakers.css'
+import './NewSneaker.css'
 import sneakerShopApi from "../../api/sneaker-shop-api";
 
 const NewSneaker = () => {
@@ -63,7 +63,7 @@ const NewSneaker = () => {
             />
             <label htmlFor="image">Image</label>
             <input
-                type="text"
+                type="file"
                 id="image"
                 name="image"
                 value={sneaker.image}

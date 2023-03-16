@@ -28,7 +28,7 @@ class SneakerController extends Controller
             'price' => 'required|numeric|min:0',
             'description' => 'nullable|string',
             'article_number' => 'nullable',
-            'image' => 'nullable|url',
+            'image' => 'string',
             'brand_id' => 'required|exists:brands,id',
         ]);
 

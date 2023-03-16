@@ -24,7 +24,7 @@ const Brands = ({ brands, refresh }) => {
         {brands.map(brand => (
           <tr key={brand.id}>
             <td>{brand.id}</td>
-            <td>{brand.brand}</td>
+            <td>{brand.name}</td>
             <td>
               <button className="delete-button" onClick={() => handleDelete(brand.id)}>
                 Delete
