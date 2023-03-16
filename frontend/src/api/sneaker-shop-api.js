@@ -14,7 +14,7 @@ export default {
         return httpClient.post('/new-brand', brand);
     },
     deleteBrand(id) {
-        return httpClient.post('/delete-brand', id);
+        return httpClient.delete('/delete-brand', id);
     },
 
     //USER
@@ -31,7 +31,7 @@ export default {
     },
 
     deleteUser(id) {
-        return httpClient.post('/delete-user', id);
+        return httpClient.delete('/delete-user', id);
     },
 
     //SNEAKER

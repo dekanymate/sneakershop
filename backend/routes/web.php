@@ -45,7 +45,7 @@ require __DIR__.'/auth.php';
 // Brands
 Route::get('/brands', [BrandController::class, 'index']);
 Route::post('/new-brand', [BrandController::class, 'store']);
-Route::post('/delete-brand', [BrandController::class, 'destroy']);
+Route::delete('/delete-brand', [BrandController::class, 'destroy']);
 
 Route::get('/api/brands/{id}', [BookController::class, 'show']);
 
@@ -54,7 +54,7 @@ Route::get('/api/brands/{id}', [BookController::class, 'show']);
 //Route::post('/new-user', [UserController::class, 'store']);
 Route::get('/users',  [UserController::class, 'index']);
 Route::put('/update-user', [UserController::class, 'update']);
-Route::post('/delete-user', [UserController::class, 'destroy']);
+Route::delete('/delete-user', [UserController::class, 'destroy']);
 Route::post('/new-user', [RegisteredUserController::class, 'store']);
 
 // Sneaker
