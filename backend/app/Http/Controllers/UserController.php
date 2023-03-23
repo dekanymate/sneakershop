@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -21,16 +22,44 @@ class UserController extends Controller
         User::find($request->id)->delete();
     }
     public function store(Request $request)
-    {
-        $User = new User();
-        $User->name = $request->name;
-        $User->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $User->city = $request->city;
-        $User->zipcode = $request->zipcode;
-        $User->address_details = $request->addressDetails;
-        $User->save();
+{
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|string',
+        'email' => 'required|email|unique:users,email',
+        'password' => [
+            'required',
+            'string',
+            'min:8',
+            'regex:/^(?=.*[A-Z])(?=.*\d).+$/',
+        ],
+        'city' => 'required|string',
+        'zipcode' => 'required|string',
+        'addressDetails' => 'required|string',
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Validation failed',
+            'errors' => $validator->errors(),
+        ], 422);
     }
+
+    $User = new User();
+    $User->name = $request->name;
+    $User->email = $request->email;
+    $User->password = $request->password;
+    $User->city = $request->city;
+    $User->zipcode = $request->zipcode;
+    $User->address_details = $request->addressDetails;
+    $User->save();
+
+    return response()->json([
+        'success' => true,
+        'message' => 'User created successfully',
+        'data' => $User,
+    ], 201);
+}
 
     public function update(Request $request)
     {
