@@ -13,6 +13,22 @@ function StockList() {
     fetchStocks();
   }, []);
 
+  function handleAmountChange(id, amount) {
+    setStocks((prevStocks) =>
+      prevStocks.map((stock) =>
+        stock.sneaker_id === id ? { ...stock, amount } : stock
+      )
+    );
+  }
+
+  async function handleSave() {
+    try {
+      await sneakerShopApi.updateStocks(stocks);
+      console.log("Stocks updated successfully!");
+    } catch (error) {
+      console.error("Failed to update stocks:", error);
+    }
+  }
 
   return (
     <div>
@@ -22,7 +38,7 @@ function StockList() {
           <tr>
             <th>ID</th>
             <th>Size</th>
-            <th><label for="amount">Amount</label></th>
+            <th>Amount</th>
             <th>Current Price</th>
           </tr>
         </thead>
@@ -31,12 +47,21 @@ function StockList() {
             <tr key={stock.sneaker_id}>
               <td>{stock.sneaker_id}</td>
               <td>{stock.size}</td>
-              <td><input type="number" id="amount" name="amount" value={stock.amount}/></td>
+              <td>
+                <input
+                  type="number"
+                  value={stock.amount}
+                  onChange={(e) =>
+                    handleAmountChange(stock.sneaker_id, e.target.value)
+                  }
+                />
+              </td>
               <td>{stock.current_price}</td>
             </tr>
           ))}
         </tbody>
       </table>
+      <button onClick={handleSave}>Save Changes</button>
     </div>
   );
 }

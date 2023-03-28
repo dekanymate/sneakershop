@@ -57,5 +57,9 @@ export default {
 
     getStocks(){
         return httpClient.get('/stocks');
-    }
+    },
+
+    updateStocks(id){
+        return httpClient.put('/update-stock/{id}', id);        
+    },
 }

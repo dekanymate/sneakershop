@@ -5,7 +5,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SneakerController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\StockController;
+use App\Http\Controllers\StockController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -47,7 +47,6 @@ require __DIR__.'/auth.php';
 Route::get('/brands', [BrandController::class, 'index']);
 Route::post('/new-brand', [BrandController::class, 'store']);
 Route::delete('/delete-brand', [BrandController::class, 'destroy']);
-
 Route::get('/api/brands/{id}', [BookController::class, 'show']);
 
 // User
@@ -69,3 +68,5 @@ Route::delete('/delete-sneaker', [SneakerController::class, 'destroy']);
 
 
 Route::get('/stocks', 'App\Http\Controllers\StockController@index');
+Route::put('/update-stock/{id}',[StockController::class, 'update']);
+
