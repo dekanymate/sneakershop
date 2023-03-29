@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('description');
-            $table->string('image');
+            $table->binary('image');
             $table->integer('article_number');
             $table->foreignId('brand_id')->references('id')->on('brands');
         });

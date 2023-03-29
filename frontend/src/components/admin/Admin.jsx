@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "./Admin.css";
 import sneakerShopApi from "../../api/sneaker-shop-api";
 
-const Admin = ({refresh}) => {
+const Admin = ({ refresh }) => {
   const [name, setName] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await sneakerShopApi.postBrand({brand: name});
+    await sneakerShopApi.postBrand({ brand: name });
     setName('');
     refresh();
   };

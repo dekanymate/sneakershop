@@ -3,6 +3,8 @@ import sneakerShopApi from '../../api/sneaker-shop-api';
 import SneakerCard from './sneaker-card/SneakerCard';
 import SneakerFilter from './sneaker-filter/SneakerFilter';
 
+
+
 const SneakerList = ({ brands }) => {
   const [sneakers, setSneakers] = useState([]);
   const [filteredSneakers, setFilteredSneakers] = useState(sneakers);

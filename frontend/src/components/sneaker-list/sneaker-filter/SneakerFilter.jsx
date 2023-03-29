@@ -13,7 +13,7 @@ const SneakerFilter = ({ brands, categoryChanged }) => {
   return (
     <div className='sneaker-filter'>
       <select onChange={handleChange}>
-        {[{ id: 'ALL', brand: 'Mind' }, ...brands].map((brand, index) => (
+        {[{ id: 'ALL', name: 'Mind' }, ...brands].map((brand, index) => (
           <option key={index} value={brand.id}>{brand.name}</option>
         ))}
       </select>
