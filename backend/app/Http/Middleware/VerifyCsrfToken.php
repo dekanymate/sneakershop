@@ -20,9 +20,7 @@ class VerifyCsrfToken extends Middleware
         'new-sneaker',
         'login',
         'delete-sneaker',
-        'register',
-        'update-stock',
-        '/update-stock/{id}'
+        'register'
     ];
     
 }

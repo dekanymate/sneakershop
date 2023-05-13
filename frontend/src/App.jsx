@@ -7,10 +7,6 @@ import Header from './components/header/Header';
 import sneakerShopApi from './api/sneaker-shop-api';
 import React, { useState, useEffect } from "react";
 import SneakerList from './components/sneaker-list/SneakerList';
-import Registration from './components/registration/Registration';
-import StockTable from './components/stock/Stock';
-import SizeSelector from './components/stock/Stock';
-import StockList from './components/stock/Stock';
 
 
 const APP_STATES = {
@@ -64,9 +60,6 @@ function App() {
         )}
         {appState == APP_STATES.SNEAKERS && (
           <SneakerList brands={brands} />
-        )}
-        {appState == APP_STATES.REGISTER && (
-          <StockList/>
         )}
       </div>
     </div>

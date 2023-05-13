@@ -19,7 +19,7 @@ export default {
 
     //USER
     postUser(user) {
-        return httpClient.post('/new-user', user);
+        return httpClient.post('register', user);
     },
 
     getUsers() {
@@ -53,13 +53,5 @@ export default {
     
     login(){
         return httpClient.post('/login');
-    },
-
-    getStocks(){
-        return httpClient.get('/stocks');
-    },
-
-    updateStocks(id){
-        return httpClient.put('/update-stock/{id}', id);        
-    },
+    }
 }

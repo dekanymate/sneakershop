@@ -27,7 +27,6 @@ return new class extends Migration
         Sneaker::create(['name'=>"Balenciaga Triple S", 'price'=>"259990", 'description'=>'A cipőben az S a talpat jelenti. Ennek a cipőnek pedig három talpa van.', 'image'=>"triples.png",'article_number'=>'135234','brand_id'=>3]);
         Sneaker::create(['name'=>"Nike Dunk Low Panda", 'price'=>"119990", 'description'=>'A cipőben az S a talpat jelenti. Ennek a cipőnek pedig három talpa van.', 'image'=>"panda.png",'article_number'=>'584273','brand_id'=>1]);
         Sneaker::create(['name'=>"Jordan 1 Low Purple Mocha", 'price'=>"169990", 'description'=>'A fehér és a mokkabarna meglehetősen egyszerű megoldását a felső végén élénk lila színű popsokkal rázzák fel.', 'image'=>"purple_mocha.png",'article_number'=>'673217','brand_id'=>2]);
-        Sneaker::create(['name'=>"Yeezy Slide", 'price'=>"59990", 'description'=>'A Yeezy Slide papucs teljesen letisztult, gyakorlatilag egyetlen EVA anyagdarabból áll.', 'image'=>"slide.png",'article_number'=>'654217','brand_id'=>4]);
         
     }
 
