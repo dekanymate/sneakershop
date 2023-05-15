@@ -22,7 +22,6 @@ const SneakerCard = ({ sneaker }) => {
           <p className="card-text">
             <b>{hufFormat(sneaker.price)}</b>
           </p>
-          <a href="#" className="btn btn-primary">Kosárba</a>
         </div>
       </div>
     </div>

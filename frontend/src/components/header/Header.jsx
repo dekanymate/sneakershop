@@ -36,6 +36,12 @@ const Header = ({ onButtonClick }) => {
           Sneakers
         </button>
         <button
+          style={selectedButton === 'STOCK' ? styles.selectedButton : styles.button}
+          onClick={() => handleButtonClick('STOCK')}
+        >
+          STOCK
+        </button>
+        <button
           style={selectedButton === 'REGISTER' ? styles.selectedButton : styles.button}
           onClick={() => handleButtonClick('REGISTER')}
         >

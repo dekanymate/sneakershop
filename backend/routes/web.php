@@ -5,6 +5,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SneakerController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\StockController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -63,3 +64,9 @@ Route::post('/new-sneaker', [SneakerController::class, 'store']);
 Route::get('/sneakers', [SneakerController::class, 'index']);
 Route::put('/update-sneaker',[SneakerController::class, 'update']);
 Route::delete('delete-sneaker', [SneakerController::class, 'destroy']);
+
+
+// Stock
+
+Route::get('/stocks', [StockController::class, 'index']);
+Route::put('/update-stocks', [StockController::class, 'update']);

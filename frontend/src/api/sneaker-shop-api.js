@@ -44,14 +44,22 @@ export default {
         return httpClient.get('/sneakers');
     },
 
-    updateSneaker(){
+    updateSneaker() {
         return httpClient.put('/update-sneaker', sneaker);
     },
-    deleteSneaker(id){
+    deleteSneaker(id) {
         return httpClient.delete('/delete-sneaker', id)
     },
-    
-    login(){
+
+    login() {
         return httpClient.post('/login');
-    }
+    },
+
+    getStocks() {
+        return httpClient.get('/stocks')
+    },
+
+    updateStocks(stock) {
+        return httpClient.put('/update-stocks', stock)
+    },
 }

@@ -4,9 +4,11 @@ import Admin from './components/admin/Admin';
 import UsersModifier from './components/users/UsersModifier';
 import NewSneaker from './components/sneakers/NewSneaker';
 import Header from './components/header/Header';
+import Registration from './components/registration/Registration';
 import sneakerShopApi from './api/sneaker-shop-api';
 import React, { useState, useEffect } from "react";
 import SneakerList from './components/sneaker-list/SneakerList';
+import SneakerStock from './components/stock/Stock';
 
 
 const APP_STATES = {
@@ -14,6 +16,7 @@ const APP_STATES = {
   USERS: 'USERS',
   ADD_SNEAKER: 'ADD_SNEAKER',
   SNEAKERS: 'SNEAKERS',
+  STOCK: 'STOCK',
   REGISTER: 'REGISTER'
 }
 
@@ -60,6 +63,12 @@ function App() {
         )}
         {appState == APP_STATES.SNEAKERS && (
           <SneakerList brands={brands} />
+        )}
+        {appState == APP_STATES.REGISTER && (
+          <Registration />
+        )}
+        {appState == APP_STATES.STOCK && (
+          <SneakerStock />
         )}
       </div>
     </div>
