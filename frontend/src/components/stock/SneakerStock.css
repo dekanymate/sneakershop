@@ -1,0 +1,52 @@
+.sneaker-stock-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sneaker-stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.sneaker-stock-table th,
+.sneaker-stock-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.sneaker-stock-table th {
+    background-color: #eee;
+}
+
+.sneaker-stock-table td:first-child {
+    font-weight: bold;
+}
+
+.sneaker-stock-save-button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+
+    .sneaker-stock-table th,
+    .sneaker-stock-table td {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .sneaker-stock-save-button {
+        font-size: 16px;
+    }
+}

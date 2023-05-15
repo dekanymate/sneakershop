@@ -6,6 +6,8 @@
     margin: 10px;
     padding: 20px;
     border: 1px solid gray;
+    max-width: 500px;
+    width: 100%;
 }
 
 .edit-user-input {
@@ -14,13 +16,15 @@
     font-size: 16px;
     border: 1px solid gray;
     border-radius: 5px;
-    width: 200px;
+    width: 100%;
+    max-width: 400px;
 }
 
 .edit-user-form-actions {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    flex-wrap: wrap;
 }
 
 .edit-user-form-button {
@@ -31,4 +35,6 @@
     border-radius: 5px;
     cursor: pointer;
     background-color: lightgray;
+    max-width: 200px;
+    flex-basis: 50%;
 }

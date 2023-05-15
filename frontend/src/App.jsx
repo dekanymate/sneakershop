@@ -9,6 +9,7 @@ import sneakerShopApi from './api/sneaker-shop-api';
 import React, { useState, useEffect } from "react";
 import SneakerList from './components/sneaker-list/SneakerList';
 import SneakerStock from './components/stock/Stock';
+import Orders from './components/order/order';
 
 
 const APP_STATES = {
@@ -17,7 +18,8 @@ const APP_STATES = {
   ADD_SNEAKER: 'ADD_SNEAKER',
   SNEAKERS: 'SNEAKERS',
   STOCK: 'STOCK',
-  REGISTER: 'REGISTER'
+  REGISTER: 'REGISTER',
+  ORDERS: 'ORDERS'
 }
 
 
@@ -69,6 +71,9 @@ function App() {
         )}
         {appState == APP_STATES.STOCK && (
           <SneakerStock />
+        )}
+        {appState == APP_STATES.ORDERS && (
+          <Orders />
         )}
       </div>
     </div>

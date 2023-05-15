@@ -10,59 +10,32 @@ class UserController extends Controller
         $users =  User::all();
         return $users;
     }
-    
+
     public function show($id)
     {
         $user = User::find($id);
         return $user;
     }
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        User::find($request->id)->delete();
+        User::find($id)->delete();
     }
     public function store(Request $request)
     {
         $User = new User();
         $User->name = $request->name;
         $User->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $User->password = $request->password;
         $User->city = $request->city;
         $User->zipcode = $request->zipcode;
         $User->address_details = $request->addressDetails;
         $User->save();
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $User = User::find($request->id);
-        $User->name = $request->name;
-        $User->email = $request->email;
-        $User->city = $request->city;
-        $User->zipcode = $request->zipcode;
-        $User->address_details = $request->address_details;
-        $User->save();
+        $User = User::find($id);
+        $User->user = $request->user;
     }
-
-    public function login(Request $request)
-{
-    $validatedData = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required'
-    ]);
-
-    $credentials = [
-        'email' => $validatedData['email'],
-        'password' => $validatedData['password'],
-    ];
-
-    if (Auth::attempt($credentials)) {
-        // Authentication passed...
-        return redirect('/brands');
-    }
-
-    return redirect()->back()->withInput()->with('error', 'Incorrect email or password');
 }
-
-}
-
 

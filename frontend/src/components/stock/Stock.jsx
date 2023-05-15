@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import sneakerShopApi from '../../api/sneaker-shop-api';
+import './SneakerStock.css';
 
 function SneakerStock() {
     const [stocks, setStocks] = useState([]);
@@ -48,8 +49,8 @@ function SneakerStock() {
     };
 
     return (
-        <div>
-            <table>
+        <div className="sneaker-stock-container">
+            <table className="sneaker-stock-table">
                 <thead>
                     <tr>
                         <th>Size</th>
@@ -83,7 +84,7 @@ function SneakerStock() {
                     ))}
                 </tbody>
             </table>
-            <button onClick={handleSaveClick}>Save</button>
+            <button className="sneaker-stock-save-button" onClick={handleSaveClick}>Save</button>
         </div>
     );
 }

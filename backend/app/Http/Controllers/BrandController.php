@@ -10,11 +10,11 @@ class BrandController extends Controller
         $brands =  Brand::all();
         return $brands;
     }
-    
+
     public function show($id)
     {
         $book = Brand::find($id);
-        return $brand;
+        return $book;
     }
     public function destroy(Request $request)
     {
@@ -33,5 +33,3 @@ class BrandController extends Controller
         $Brand->name = $request->name;
     }
 }
-
-

@@ -47,6 +47,7 @@ const UsersModifier = () => {
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Password</th>
                             <th>City</th>
                             <th>Actions</th>
                         </tr>
@@ -57,6 +58,7 @@ const UsersModifier = () => {
                                 <td>{user.id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
+                                <td>{user.password}</td>
                                 <td>{user.city}</td>
                                 <td>
                                     <button onClick={() => handleEdit(user)}>Edit</button>
@@ -72,7 +74,7 @@ const UsersModifier = () => {
 };
 
 const EditUserForm = ({ user, handleUpdate, setEditing }) => {
-    const [updatedUser, setUpdatedUser] = useState(user);
+    const [updatedUser, setUpdatedUser] = useState({ ...user, password: '' });
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -96,6 +98,15 @@ const EditUserForm = ({ user, handleUpdate, setEditing }) => {
                 id="email"
                 name="email"
                 value={updatedUser.email}
+                onChange={handleInputChange}
+                className="edit-user-input"
+            />
+            <label htmlFor="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                value={updatedUser.password}
                 onChange={handleInputChange}
                 className="edit-user-input"
             />

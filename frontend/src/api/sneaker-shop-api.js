@@ -19,7 +19,7 @@ export default {
 
     //USER
     postUser(user) {
-        return httpClient.post('register', user);
+        return httpClient.post('/new-user', user);
     },
 
     getUsers() {
@@ -62,4 +62,14 @@ export default {
     updateStocks(stock) {
         return httpClient.put('/update-stocks', stock)
     },
+
+    getOrders() {
+        return httpClient.get('/orders')
+    },
+
+    getOrderItem(orderId) {
+        const url = `/orders/${orderId}/items`;
+        console.log("Constructed URL:", url); // debug output
+        return httpClient.get(url);
+    }
 }

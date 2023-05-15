@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Header.css';
 
 const Header = ({ onButtonClick }) => {
   const [selectedButton, setSelectedButton] = useState('BRANDS');
@@ -46,6 +47,12 @@ const Header = ({ onButtonClick }) => {
           onClick={() => handleButtonClick('REGISTER')}
         >
           REGISTER
+        </button>
+        <button
+          style={selectedButton === 'ORDERS' ? styles.selectedButton : styles.button}
+          onClick={() => handleButtonClick('ORDERS')}
+        >
+          ORDERS
         </button>
       </nav>
     </header>
