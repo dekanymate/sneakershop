@@ -37,6 +37,18 @@ const Orders = () => {
         }
     }
 
+    async function handleDelete(orderId) {
+        try {
+            await sneakerShopApi.deleteOrder({ id: orderId });
+            const updatedOrders = orders.filter(order => order.id !== orderId);
+            setOrders(updatedOrders);
+            setSelectedOrderId(null);
+            setSelectedOrderItems([]);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     function handleBackClick() {
         setSelectedOrderId(null);
         setSelectedOrderItems([]);
@@ -77,6 +89,7 @@ const Orders = () => {
                                 <th>User ID</th>
                                 <th>Date</th>
                                 <th>Total</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -90,6 +103,14 @@ const Orders = () => {
                                     <td>{order.user_id}</td>
                                     <td>{order.date}</td>
                                     <td>{hufFormat(order.total)}</td>
+                                    <td>
+                                        <button className="delete-button" onClick={(event) => {
+                                            event.stopPropagation();
+                                            handleDelete(order.id);
+                                        }}>
+                                            Delete
+                                        </button>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

@@ -50,21 +50,23 @@ export default {
     deleteSneaker(id) {
         return httpClient.delete('/delete-sneaker', id)
     },
-
-    login() {
-        return httpClient.post('/login');
-    },
-
+    //STOCK
     getStocks() {
         return httpClient.get('/stocks')
     },
 
-    updateStocks(stock) {
-        return httpClient.put('/update-stocks', stock)
+    updateStocks(id, data) {
+        return httpClient.put('/update-stocks/' + id, data);
     },
 
+    //ORDER
     getOrders() {
         return httpClient.get('/orders')
+    },
+
+    deleteOrder(data) {
+        const { id } = data;
+        return httpClient.delete('/delete-order', data)
     },
 
     getOrderItem(orderId) {

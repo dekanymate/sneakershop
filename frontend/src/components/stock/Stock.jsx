@@ -25,14 +25,15 @@ function SneakerStock() {
         setStocks(newStocks);
     };
 
-    const handleSaveClick = async () => {
+    const handleSaveClick = async (id, updatedStock) => {
         try {
-            const res = await sneakerShopApi.updateStocks(stocks);
+            const res = await sneakerShopApi.updateStocks(id, updatedStock);
             console.log(res.data);
         } catch (err) {
             console.log(err);
         }
     };
+
 
     const handleEditClick = (stock) => {
         const newStocks = [...stocks];

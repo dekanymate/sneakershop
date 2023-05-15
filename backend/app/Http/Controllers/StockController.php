@@ -28,12 +28,13 @@ class StockController extends Controller
         $Stock->save();
     }
 
-    public function update(Request $request, $id)
-    {
-        $Stock = Stock::find($id);
-        $Stock->sneaker_id = $request->sneaker_id;
-        $Stock->size = $request->size;
-        $Stock->amount = $request->amount;
-        $Stock->current_price = $request->current_price;
-    }
+    public function update($id, Request $request)
+{
+    $stock = Stock::findOrFail($id);
+    $stock->amount = $request->amount;
+    $stock->save();
+
+    return response()->json(['success' => true]);
+}
+
 }

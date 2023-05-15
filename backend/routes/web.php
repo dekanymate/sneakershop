@@ -72,6 +72,7 @@ Route::put('/update-stocks', [StockController::class, 'update']);
 // Order
 
 Route::get('/orders', [OrderController::class, 'index']);
+Route::delete('/delete-order', [OrderController::class, 'destroy']);
 
 // Order Items
 
