@@ -9,8 +9,16 @@ function SneakerStock() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await sneakerShopApi.getStocks();
-                setStocks(res.data);
+                const stocksResponse = await sneakerShopApi.getStocks();
+                const sneakersResponse = await sneakerShopApi.getSneakers();
+
+                const stocksWithSneakerName = stocksResponse.data.map(stock => {
+                    const sneaker = sneakersResponse.data.find(sneaker => sneaker.id === stock.sneaker_id);
+                    const sneakerName = sneaker ? sneaker.name : 'Unknown Sneaker';
+                    return { ...stock, sneakerName };
+                });
+
+                setStocks(stocksWithSneakerName);
             } catch (err) {
                 console.log(err);
             }
@@ -54,6 +62,7 @@ function SneakerStock() {
             <table className="sneaker-stock-table">
                 <thead>
                     <tr>
+                        <th>Sneaker</th>
                         <th>Size</th>
                         <th>Amount</th>
                         <th>Current Price</th>
@@ -63,6 +72,7 @@ function SneakerStock() {
                 <tbody>
                     {stocks.map(stock => (
                         <tr key={`${stock.sneaker_id}-${stock.size}`}>
+                            <td>{stock.sneakerName}</td>
                             <td>{stock.size}</td>
                             <td>
                                 {stock.editMode ?
