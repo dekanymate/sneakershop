@@ -14,7 +14,7 @@ export default {
         return httpClient.post('/new-brand', brand);
     },
     deleteBrand(id) {
-        return httpClient.delete('/delete-brand', id);
+        return httpClient.post('/delete-brand', id);
     },
 
     //USER
@@ -55,8 +55,8 @@ export default {
         return httpClient.get('/stocks')
     },
 
-    updateStocks(id, data) {
-        return httpClient.put('/update-stocks/' + id, data);
+    updateStocks(stock) {
+        return httpClient.put('/update-stocks/', stock);
     },
 
     //ORDER
@@ -64,9 +64,8 @@ export default {
         return httpClient.get('/orders')
     },
 
-    deleteOrder(data) {
-        const { id } = data;
-        return httpClient.delete('/delete-order', data)
+    deleteOrder(id) {
+        return httpClient.post('/delete-order', id)
     },
 
     getOrderItem(orderId) {

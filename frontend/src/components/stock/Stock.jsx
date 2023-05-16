@@ -3,6 +3,14 @@ import axios from 'axios';
 import sneakerShopApi from '../../api/sneaker-shop-api';
 import './SneakerStock.css';
 
+const hufFormat = (amount) => {
+    return new Intl.NumberFormat('hu-HU', {
+        style: 'currency',
+        currency: 'HUF',
+        maximumFractionDigits: 0,
+    }).format(amount);
+};
+
 function SneakerStock() {
     const [stocks, setStocks] = useState([]);
 
@@ -80,7 +88,7 @@ function SneakerStock() {
                                     stock.amount
                                 }
                             </td>
-                            <td>{stock.current_price}</td>
+                            <td>{hufFormat(stock.current_price)}</td>
                             <td>
                                 {stock.editMode ?
                                     <>

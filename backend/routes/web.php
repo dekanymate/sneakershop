@@ -47,7 +47,7 @@ require __DIR__.'/auth.php';
 // Brands
 Route::get('/brands', [BrandController::class, 'index']);
 Route::post('/new-brand', [BrandController::class, 'store']);
-Route::delete('/delete-brand', [BrandController::class, 'destroy']);
+Route::post('/delete-brand', [BrandController::class, 'destroy']);
 
 // User
 
@@ -72,7 +72,7 @@ Route::put('/update-stocks', [StockController::class, 'update']);
 // Order
 
 Route::get('/orders', [OrderController::class, 'index']);
-Route::delete('/delete-order', [OrderController::class, 'destroy']);
+Route::post('/delete-order', [OrderController::class, 'destroy']);
 
 // Order Items
 
