@@ -19,7 +19,11 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users');
             $table->date('date');
             $table->integer('total');
+            $table->timestamps(false);
         });
+
+        Order::create(['user_id'=>1, 'date'=>'2023-01-01', 'total'=>'120000']);
+        Order::create(['user_id'=>2, 'date'=>'2023-01-01', 'total'=>'70000']);
 
 
     }

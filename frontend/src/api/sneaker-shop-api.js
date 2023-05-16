@@ -73,5 +73,9 @@ export default {
         const url = `/orders/${orderId}/items`;
         console.log("Constructed URL:", url); // debug output
         return httpClient.get(url);
+    },
+
+    login() {
+        return httpClient.get('/login')
     }
 }

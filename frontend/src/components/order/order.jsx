@@ -18,8 +18,16 @@ const Orders = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await sneakerShopApi.getOrders();
-                setOrders(response.data);
+                const ordersResponse = await sneakerShopApi.getOrders();
+                const usersResponse = await sneakerShopApi.getUsers();
+
+                const ordersWithUsernames = ordersResponse.data.map(order => {
+                    const user = usersResponse.data.find(user => user.id === order.user_id);
+                    const username = user ? user.name : 'Unknown';
+                    return { ...order, username };
+                });
+
+                setOrders(ordersWithUsernames);
             } catch (error) {
                 console.error(error);
             }
@@ -29,7 +37,7 @@ const Orders = () => {
 
     async function handleOrderClick(orderId) {
         try {
-            const response = await sneakerShopApi.getOrderItem();
+            const response = await sneakerShopApi.getOrderItem(orderId);
             setSelectedOrderId(orderId);
             setSelectedOrderItems(response.data);
         } catch (error) {
@@ -86,7 +94,7 @@ const Orders = () => {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>User ID</th>
+                                <th>Customer</th>
                                 <th>Date</th>
                                 <th>Total</th>
                                 <th>Actions</th>
@@ -100,14 +108,17 @@ const Orders = () => {
                                     className="order-row"
                                 >
                                     <td>{order.id}</td>
-                                    <td>{order.user_id}</td>
+                                    <td>{order.username}</td>
                                     <td>{order.date}</td>
                                     <td>{hufFormat(order.total)}</td>
                                     <td>
-                                        <button className="delete-button" onClick={(event) => {
-                                            event.stopPropagation();
-                                            handleDelete(order.id);
-                                        }}>
+                                        <button
+                                            className="delete-button"
+                                            onClick={(event) => {
+                                                event.stopPropagation();
+                                                handleDelete(order.id);
+                                            }}
+                                        >
                                             Delete
                                         </button>
                                     </td>
@@ -116,9 +127,7 @@ const Orders = () => {
                         </tbody>
                     </table>
                 </div>
-            )}
-
-        </div>
+            )}</div>
     );
 }
 

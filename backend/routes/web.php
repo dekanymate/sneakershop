@@ -77,3 +77,16 @@ Route::delete('/delete-order', [OrderController::class, 'destroy']);
 // Order Items
 
 Route::get('/orders/${orderId}/items', [OrderItemController::class, 'index']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
+Route::post('/register', [App\Http\Controllers\AuthController::class, 'register']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout']);
+});

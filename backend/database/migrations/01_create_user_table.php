@@ -25,6 +25,7 @@ return new class extends Migration
         });
 
         User::create(['email'=>"dekanymate@gmail.com", 'name'=>"Dékány Máté", 'password'=>"Kutyamacska123", 'city'=>"Budapest", 'zipcode'=>"1032", 'address_details'=>"Kutyamacska utca 1.", 'is_admin'=>1]);
+        User::create(['email'=>"kissistvan@gmail.com", 'name'=>"Kiss István", 'password'=>"Kutyamacska123", 'city'=>"Budapest", 'zipcode'=>"1022", 'address_details'=>"Macska körút 3.", 'is_admin'=>1]);
     }
 
     /**
